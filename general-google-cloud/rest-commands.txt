@@ -1,0 +1,17 @@
+export GOOGLE_APPLICATION_CREDENTIALS=SA-key.json
+
+curl -s -H "Content-Type: application/json" -H "Authorization: Bearer "$(gcloud auth application-default print-access-token) -X GET https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT-ID/locations/us-central1/datasets
+
+curl -s -H "Content-Type: application/json" -H "Authorization: Bearer "$(gcloud auth application-default print-access-token) -X DELETE https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT-ID/locations/us-central1/datasets/3222336528499867648/savedQueries/649921323178393600
+
+-- Impersonate SA --
+
+gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+
+gcloud config set auth/impersonate_service_account XXX@PROJECT-ID.iam.gserviceaccount.com
+
+gcloud auth application-default login
+
+curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json; charset=utf-8" -d @request.json "https://us-central1-aiplatform.googleapis.com/v1/projects/danelias-test/locations/us-central1/datasets"
+
+gcloud config unset auth/impersonate_service_account
