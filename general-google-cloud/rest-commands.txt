@@ -12,6 +12,6 @@ gcloud config set auth/impersonate_service_account XXX@PROJECT-ID.iam.gserviceac
 
 gcloud auth application-default login
 
-curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json; charset=utf-8" -d @request.json "https://us-central1-aiplatform.googleapis.com/v1/projects/danelias-test/locations/us-central1/datasets"
+curl -X POST -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json; charset=utf-8" -d @request.json "https://us-central1-aiplatform.googleapis.com/v1/projects/PROJECT-ID/locations/us-central1/datasets"
 
 gcloud config unset auth/impersonate_service_account
