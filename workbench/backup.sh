@@ -3,7 +3,7 @@
 # Script to copy files/directories from Jupyter to a Google Cloud Storage bucket
 
 # Bucket Path 
-BUCKET_PATH="gs://backup-test-wbi-danelias/backups"  # Replace with your actual bucket path
+BUCKET_PATH="gs://backup/backups"  # Replace with your actual bucket path
 
 # Source directory 
 SOURCE_DIR="/home/jupyter/*"   # Copies all contents from the Jupyter directory
